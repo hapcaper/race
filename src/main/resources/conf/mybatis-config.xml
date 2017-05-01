@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+        <!-- 命名空间 -->
+    <typeAliases>
+    	<typeAlias alias="Project" type="cn.springmvc.entry.Project"/>
+    	<typeAlias alias="Teacher" type="cn.springmvc.entry.Teacher"/>
+    	<typeAlias alias="Work" type="cn.springmvc.entry.Work"/>
+    	<typeAlias alias="Race" type="cn.springmvc.entry.Race"/>
+    	<typeAlias alias="Term" type="cn.springmvc.entry.Term"/>
+    	
+    	<typeAlias alias="Task" type="cn.springmvc.entry.Task"/>
+    	<typeAlias alias="Teamer" type="cn.springmvc.entry.Teamer"/>
+         <typeAlias alias="Device" type="cn.springmvc.entry.Device"/>
+         <typeAlias alias="Depanment" type="cn.springmvc.entry.Depanment"/>
+         <typeAlias alias="Member" type="cn.springmvc.entry.Member"/>
+         <typeAlias alias="Tranfer" type="cn.springmvc.entry.Tranfer"/>
+         <typeAlias alias="Classes" type="cn.springmvc.entry.Classes"/>
+          <typeAlias alias="Professional" type="cn.springmvc.entry.Professional"/>
+         
+    </typeAliases>
+ 
+    <!-- 映射map -->
+    <mappers>
+    </mappers>
+</configuration>

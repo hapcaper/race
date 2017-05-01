@@ -1,0 +1,94 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page  isELIgnored="false"%>
+<div class="main-container">
+	<div class="navbar-content">
+		<!-- start: SIDEBAR -->
+		<div class="main-navigation navbar-collapse collapse">
+			<!-- start: MAIN MENU TOGGLER BUTTON -->
+			<div class="navigation-toggler">
+				<i class="clip-chevron-left"></i> <i class="clip-chevron-right"></i>
+			</div>
+			<!-- end: MAIN MENU TOGGLER BUTTON -->
+			<!-- start: MAIN NAVIGATION MENU -->
+			<ul class="main-navigation-menu">
+				<li id="index" class="active open"><a
+					href="manage/depanmentIndex.do"><i class="clip-home-3"></i> <span
+						class="title"> 首页 </span><span class="selected"></span> </a>
+				</li>
+				<c:if test="${!empty sessionScope.teacher }">
+					
+
+					<li id="personalCenter"><a href="javascript:void(0)"
+						class="active" id='systemA'> <i class="clip-user-2"></i> <span
+							class="title"> 个人中心 </span> <i class="icon-arrow"></i> </a>
+						<ul class="sub-menu">
+							<li id="myData"><a href="manage/toEmployeeDetail.do"> <span
+									class="title"> 个人资料 </span> </a>
+							</li>
+							<li id="updatePasswd"><a href="manage/toUpdatePasswd.do">
+									<span class="title"> 修改密码 </span> </a>
+							</li>
+
+
+						</ul>
+					</li>
+
+					
+
+					
+
+					<li id="raceManage"><a href="javascript:void(0)"
+						class="active" id='systemA'> <i class="clip-folder"></i> <span
+							class="title"> 赛事管理 </span> <i class="icon-arrow"></i> </a>
+						<ul class="sub-menu">
+						<c:if test="${sessionScope.teacher.status == 1 }">
+								<li id="addProject"><a href="manage/toAddProject.do"> <span
+										class="title"> 添加项目 </span> </a>
+								</li>
+								<li id="applyRace"><a href="manage/toSelectRace.do"> <span
+										class="title"> 申报赛事 </span> </a>
+								</li>
+								<li id="myRaceList"><a href="manage/toMyRaceList.do"> <span
+										class="title"> 我的赛事 </span> </a>
+								</li>
+								<li id="myProjectList"><a href="manage/toMyProjectList.do"> <span
+										class="title"> 我的项目 </span> </a>
+								</li>
+						</c:if>
+						<c:if test="${sessionScope.teacher.status == 2 }">
+							<li id="allRaceList"><a href="manage/toAllRaceList.do"> <span
+										class="title"> 审理赛事 </span> </a>
+							</li>
+							<li id="teacherwork"><a href="manage/toTeacherWorkList.do"> <span
+										class="title"> 查看工作量 </span> </a>
+							</li>
+						</c:if>
+						</ul>
+					</li>
+				</c:if>
+			</ul>
+			<!-- end: MAIN NAVIGATION MENU -->
+		</div>
+		<!-- end: SIDEBAR -->
+	</div>
+</div>
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+<!--
+	var level1menuId = '${menuSelected1}';
+	var level2menuId = '${menuSelected2}';
+	$(".open").each(function() {
+		$(this).removeClass('active open');
+	});
+
+	$('#' + level1menuId).click();
+	$('#' + level1menuId).addClass('active open');
+	if ($('#' + level2menuId)) {
+		$('#' + level2menuId).addClass('active open');
+	}
+//-->
+</script>
+
+
+
