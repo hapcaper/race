@@ -10,11 +10,15 @@ import cn.springmvc.dao.UserDao;
 public interface UserService{
 
 
-    public int insert(User pojo);
+    public int insert(User user);
 
-    public int insertSelective(User pojo);
+    public int insertSelective(User user);
 
-    public int insertList(List<User> pojos);
+    public int insertList(List<User> users);
 
-    public int update(User pojo);
+    public int update(User user);
+
+    public List<User> findByEmailAndPassword(String email,String password);
+
+    public List<String> findEmailByEmail(String email);
 }

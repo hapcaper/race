@@ -14,5 +14,10 @@ public interface UserDao {
 
     int update(@Param("user") User user);
 
+    List<User> findByEmailAndPassword(@Param("email")String email,@Param("password")String password);
+
+    List<String> findEmailByEmail(@Param("email")String email);
+
+
 
 }
