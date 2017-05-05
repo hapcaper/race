@@ -3,7 +3,7 @@ package cn.springmvc.entry;
 import cn.springmvc.entry.base.BaseDO;
 /**
  * 
- * @author hb
+ * @author lzh
  *
  */
 public class Teacher extends BaseDO{
