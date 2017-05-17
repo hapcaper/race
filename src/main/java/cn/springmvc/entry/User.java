@@ -4,13 +4,14 @@ package cn.springmvc.entry;
  * Created by ASUS on 2017/4/30.
  */
 public class User {
-    private Integer id;//id
-    private String email;//用户id
-    private String uname;//用户姓名
+    private String id;
+    private String tid;//用户id
+    private String tname;//用户姓名
     private String password;//密码
     private String description;//描述
-    private Integer status; //状态
-    private Integer identity;//身份
+    private int status; //状态
+    private String whoim;
+    private int identity;//身份
 
     public User() {
     }
@@ -18,12 +19,13 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", uname='" + uname + '\'' +
+                "id='" + id + '\'' +
+                ", tid='" + tid + '\'' +
+                ", tname='" + tname + '\'' +
                 ", password='" + password + '\'' +
                 ", description='" + description + '\'' +
                 ", status=" + status +
+                ", whoim='" + whoim + '\'' +
                 ", identity=" + identity +
                 '}';
     }
@@ -36,28 +38,37 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+
+    public String getWhoim() {
+        return whoim;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setWhoim(String whoim) {
+        this.whoim = whoim;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getUname() {
-        return uname;
+    public String getTid() {
+        return tid;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setTid(String tid) {
+        this.tid = tid;
+    }
+
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        this.tname = tname;
     }
 
     public String getPasswrod() {

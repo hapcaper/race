@@ -1,9 +1,10 @@
 package cn.springmvc.dao;
 
-import cn.springmvc.entry.Race;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import cn.springmvc.entry.Race;
 
 /**
  * 
@@ -104,6 +105,7 @@ public interface RaceDAO {
 //	 * @return
 //	 */
 //	int countTaskByPidAndStu(@Param("pid") int pid, @Param("stu") int stu);
+//	
 //	/**
 //	 * 查询项目的任务
 //	 * 
@@ -120,9 +122,12 @@ public interface RaceDAO {
 //
 //	void completeTask(int tid);
 //
-int updateRaceResult(@Param("id") int id, @Param("result") int result);
+	int updateRaceResult(@Param("id") int id, @Param("result") int result);
+		
+	
+	
+	List<Race> getAllRaceByTerm(@Param("term") int term);
 
-    List<Race> getAllRaceByTerm(@Param("term") int term);
-
-    List<Race> getRaceById(@Param("id") int id);
+	List<Race> getRaceById(@Param("id") int id);
+	
 }

@@ -1,12 +1,12 @@
-package cn.springmvc.service;
-
-import java.io.File;
-
-import cn.springmvc.entry.User;
-
-
-public interface UploadService {
-	
-	public boolean uploadSingleFile(User u, File file);
-
-}
+//package cn.springmvc.service;
+//
+//import java.io.file;
+//
+//import cn.springmvc.entry.member;
+//
+//
+//public interface uploadservice {
+//
+//	public boolean uploadsinglefile(member m, file file);
+//
+//}

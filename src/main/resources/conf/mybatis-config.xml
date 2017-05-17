@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     	<typeAlias alias="Work" type="cn.springmvc.entry.Work"/>
     	<typeAlias alias="Race" type="cn.springmvc.entry.Race"/>
     	<typeAlias alias="Term" type="cn.springmvc.entry.Term"/>
-        <typeAlias alias="User" type="cn.springmvc.entry.User"/>
+    	
 
          
     </typeAliases>

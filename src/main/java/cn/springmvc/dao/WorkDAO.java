@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import cn.springmvc.entry.Teamer;
 import cn.springmvc.entry.Work;
 
 public interface WorkDAO {
@@ -12,7 +11,6 @@ public interface WorkDAO {
 	/**
 	 * 按教师id查询所有学期的工作量
 	 * @param tid
-	 * @param term
 	 * @return
 	 */
 	List<Work> getWorkByTid(String tid);
