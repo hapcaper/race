@@ -47,6 +47,8 @@ public interface RaceDAO {
 	 * @return
 	 */
 	int updateRace(Race race);
+
+
 //	/**
 //	 * 获取所有任务
 //	 * 

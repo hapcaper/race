@@ -21,9 +21,9 @@ import cn.springmvc.service.TermService;
 public class LoginController {
 	@Autowired
 	private TeacherService teacherService;
-	
-	@Autowired
-	private TermService termService;
+
+    @Autowired
+    private TermService termService;
 
 	@RequestMapping(value = "toLogin")
 	public String tologin() {
@@ -49,7 +49,8 @@ public class LoginController {
 				session.setAttribute("teacher", teacher);
 				session.setAttribute("term", term);
 
-				return "redirect:manage/toAddProject.do";
+				if(teacher.getStatus()==1)return "redirect:manage/toAddProject.do";
+				if(teacher.getStatus()==2)return "redirect:manage/toTeacherWorkList.do";
 			} else {
 				model.addAttribute("errorMessage", "用户名或密码错误，请重新输入");
 				model.addAttribute("username", eno);
@@ -67,6 +68,8 @@ public class LoginController {
 		return "/login";
 
 	}
+
+
 
 //	@RequestMapping("/regist")
 //	public String regist(// @RequestParam(value = "photo", required = false)

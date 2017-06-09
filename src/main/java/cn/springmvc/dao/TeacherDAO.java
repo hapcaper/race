@@ -16,6 +16,8 @@ public interface TeacherDAO {
 	List<Teacher> getTeacherByTid(String tid);
 	
 	List<Teacher> getAllTeacherByStatus(@Param("status") int status);
+
+	
 //	/**
 //	 * 插入一条教师信息
 //	 * @param employee
