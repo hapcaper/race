@@ -13,6 +13,11 @@ public interface ProjectDAO {
 	 * @author ASUS
 	 * @return
 	 */
+
+
+    List<Project> findByStuid(@Param("stuid") Integer stuid);
+
+
 	
 	List<Project> getAllProject();
 	

@@ -6,13 +6,13 @@ import cn.springmvc.entry.base.BaseDO;
  * @author hb
  *
  */
-public class Teacher extends BaseDO{
+public class Teacher {
 	private String id;
 	private String tid;//教师id
 	private String tname;//教师姓名
 	private String password ;//密码
     private String description;//描述
-    private int status; //职务
+    private Integer status; //职务
     private String whoim ;
 	@Override
 	public String toString() {

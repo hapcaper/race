@@ -15,6 +15,13 @@
 		<result property="status" column="status" />
 		<result property="tid" column="tid"/>
 	</resultMap>
+
+    <select id="findByStuid" resultType="Project">
+        select * from project where `id` in (
+            SELECT stu_pro.pro_id FROM stu_pro WHERE stu_pro.stu_id=#{stuid}
+        )
+    </select>
+
 	<select id="getAllProject" resultMap="MyProject">
 		select * from project
 	</select>

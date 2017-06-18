@@ -3,15 +3,15 @@ package cn.springmvc.entry;
 import cn.springmvc.entry.base.BaseDO;
 
 public class Project extends BaseDO{
-	private int id;
+	private Integer id;
 	private String proname;
 	private String description;
 	private String document;
-	private int progress;
-	private int number;
+	private Integer progress;
+	private Integer number;
 	private String headman;
 	private String persons;
-	private int status;
+	private Integer status;
 	private String tid;
 	@Override
 	public String toString() {

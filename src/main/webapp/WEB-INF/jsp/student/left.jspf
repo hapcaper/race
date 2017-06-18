@@ -16,11 +16,11 @@
 					href="manage/depanmentIndex.do"><i class="clip-home-3"></i> <span
 						class="title"> 首页 </span><span class="selected"></span> </a>
 				</li>
-				<c:if test="${!empty sessionScope.teacher }">
+				<c:if test="${!empty sessionScope.student }">
 					
 
 					<li id="personalCenter"><a href="javascript:void(0)"
-						class="active" id='systemA'> <i class="clip-user-2"></i> <span
+						class="active" id='systemA2'> <i class="clip-user-2"></i> <span
 							class="title"> 个人中心 </span> <i class="icon-arrow"></i> </a>
 						<ul class="sub-menu">
 							<li id="myData"><a href="manage/toEmployeeDetail.do"> <span
@@ -34,15 +34,10 @@
 						</ul>
 					</li>
 
-					
-
-					
-
 					<li id="raceManage"><a href="javascript:void(0)"
 						class="active" id='systemA'> <i class="clip-folder"></i> <span
 							class="title"> 赛事管理 </span> <i class="icon-arrow"></i> </a>
 						<ul class="sub-menu">
-						<c:if test="${sessionScope.teacher.status == 1 }">
 								<li id="addProject"><a href="manage/toAddProject.do"> <span
 										class="title"> 添加项目 </span> </a>
 								</li>
@@ -55,15 +50,6 @@
 								<li id="myProjectList"><a href="manage/toMyProjectList.do"> <span
 										class="title"> 我的项目 </span> </a>
 								</li>
-						</c:if>
-						<c:if test="${sessionScope.teacher.status == 2 }">
-							<li id="allRaceList"><a href="manage/toAllRaceList.do"> <span
-										class="title"> 审理赛事 </span> </a>
-							</li>
-							<li id="teacherwork"><a href="manage/toTeacherWorkList.do"> <span
-										class="title"> 查看工作量 </span> </a>
-							</li>
-						</c:if>
 						</ul>
 					</li>
 				</c:if>

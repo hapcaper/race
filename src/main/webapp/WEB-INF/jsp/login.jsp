@@ -88,7 +88,6 @@
                     <div class="tab-content">
                         <div id="panel_tab_example1" class="tab-pane active">
                             <form class="form-login" action="login.do?who=student" method="post">
-
                                 <div class="errorHandler alert alert-danger no-display">
                                     <i class="fa fa-remove-sign"></i> 您提交的表单存在错误，请重新检查.
                                 </div>
@@ -126,7 +125,7 @@
                             </form>
                         </div>
                         <div id="panel_tab_example2" class="tab-pane">
-                            <form class="form-login" action="login.do?who=teacher" method="post">
+                            <form class="form-login2" action="login.do?who=teacher" method="post">
 
                                 <div class="errorHandler alert alert-danger no-display">
                                     <i class="fa fa-remove-sign"></i> 您提交的表单存在错误，请重新检查.
