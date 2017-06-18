@@ -3,9 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.edu.zzti.race</groupId>
   <artifactId>race</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>race Maven Webapp</name>
+    <modules>
+        <module>race-student</module>
+    </modules>
+    <name>race Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
 

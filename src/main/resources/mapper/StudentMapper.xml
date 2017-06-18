@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.springmvc.dao.StudentDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="cn.springmvc.entry.Student">
+        <result column="id" property="id"/>
+        <result column="stu_number" property="stuNumber"/>
+        <result column="stu_id" property="stuId"/>
+        <result column="stu_name" property="stuName"/>
+        <result column="pass_word" property="passWord"/>
+        <result column="stu_description" property="stuDescription"/>
+        <result column="status" property="status"/>
+        <result column="duty" property="duty"/>
+        <result column="stu_photo" property="stuPhoto"/>
+        <result column="gender" property="gender"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `id`,
+        `stu_number`,
+        `stu_id`,
+        `stu_name`,
+        `pass_word`,
+        `stu_description`,
+        `status`,
+        `duty`,
+        `stu_photo`,
+        `gender`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO student (
+            `id`,
+            `stu_number`,
+            `stu_id`,
+            `stu_name`,
+            `pass_word`,
+            `stu_description`,
+            `status`,
+            `duty`,
+            `stu_photo`,
+            `gender`
+        ) VALUES (
+            #{pojo.id},
+            #{pojo.stuNumber},
+            #{pojo.stuId},
+            #{pojo.stuName},
+            #{pojo.passWord},
+            #{pojo.stuDescription},
+            #{pojo.status},
+            #{pojo.duty},
+            #{pojo.stuPhoto},
+            #{pojo.gender}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id!=null"> `id`,</if>
+            <if test="pojo.stuNumber!=null"> `stu_number`,</if>
+            <if test="pojo.stuId!=null"> `stu_id`,</if>
+            <if test="pojo.stuName!=null"> `stu_name`,</if>
+            <if test="pojo.passWord!=null"> `pass_word`,</if>
+            <if test="pojo.stuDescription!=null"> `stu_description`,</if>
+            <if test="pojo.status!=null"> `status`,</if>
+            <if test="pojo.duty!=null"> `duty`,</if>
+            <if test="pojo.stuPhoto!=null"> `stu_photo`,</if>
+            <if test="pojo.gender!=null"> `gender`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.stuNumber!=null">#{pojo.stuNumber},</if>
+            <if test="pojo.stuId!=null">#{pojo.stuId},</if>
+            <if test="pojo.stuName!=null">#{pojo.stuName},</if>
+            <if test="pojo.passWord!=null">#{pojo.passWord},</if>
+            <if test="pojo.stuDescription!=null">#{pojo.stuDescription},</if>
+            <if test="pojo.status!=null">#{pojo.status},</if>
+            <if test="pojo.duty!=null">#{pojo.duty},</if>
+            <if test="pojo.stuPhoto!=null">#{pojo.stuPhoto},</if>
+            <if test="pojo.gender!=null">#{pojo.gender},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO student (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.stuNumber},
+            #{pojo.stuId},
+            #{pojo.stuName},
+            #{pojo.passWord},
+            #{pojo.stuDescription},
+            #{pojo.status},
+            #{pojo.duty},
+            #{pojo.stuPhoto},
+            #{pojo.gender}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE student
+        <set>
+            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
+            <if test="pojo.stuNumber != null"> `stu_number` = #{pojo.stuNumber}, </if>
+            <if test="pojo.stuId != null"> `stu_id` = #{pojo.stuId}, </if>
+            <if test="pojo.stuName != null"> `stu_name` = #{pojo.stuName}, </if>
+            <if test="pojo.passWord != null"> `pass_word` = #{pojo.passWord}, </if>
+            <if test="pojo.stuDescription != null"> `stu_description` = #{pojo.stuDescription}, </if>
+            <if test="pojo.status != null"> `status` = #{pojo.status}, </if>
+            <if test="pojo.duty != null"> `duty` = #{pojo.duty}, </if>
+            <if test="pojo.stuPhoto != null"> `stu_photo` = #{pojo.stuPhoto}, </if>
+            <if test="pojo.gender != null"> `gender` = #{pojo.gender} </if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated by codehelper on 2017-06-09 17:25:39-->
+    <select id="findByStuNumberAndPassWord" resultMap="AllColumnMap">
+        select
+        <include refid="all_column"/>
+        from student
+        where `stu_number`=#{stuNumber} and `pass_word`=#{passWord}
+    </select>
+
+<!--auto generated by codehelper on 2017-06-14 17:37:56-->
+    <select id="findById" resultMap="AllColumnMap">
+        select
+        <include refid="all_column"/>
+        from student
+        where `id`=#{id}
+    </select>
+
+<!--auto generated by codehelper on 2017-06-14 17:38:14-->
+    <select id="findByStuId" resultMap="AllColumnMap">
+        select
+        <include refid="all_column"/>
+        from student
+        where `stu_id`=#{stuId}
+    </select>
+</mapper>
+

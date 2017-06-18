@@ -37,9 +37,11 @@ public class LoginController {
 
 	@RequestMapping(value = "login")
 	public String loginForm(HttpSession session,
+			@RequestParam("who") String who,
 			@RequestParam("username") String eno,
 			@RequestParam("password") String passwd, Model model) {
-		ResultDO<List<Teacher>> resultteacher = this.teacherService.getTeacherByTid(eno);
+
+        ResultDO<List<Teacher>> resultteacher = this.teacherService.getTeacherByTid(eno);
 		ResultDO<List<Term>> resultterm = termService.getMaxTerm();
 		if (resultteacher.isSuccess()) {
 			Teacher teacher = resultteacher.getResult().get(0);
