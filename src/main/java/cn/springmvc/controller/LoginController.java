@@ -60,7 +60,12 @@ public class LoginController {
 
     @RequestMapping(value = "logOut")
 	public String logOut(HttpSession session) {
-		session.removeAttribute("teacher");
+	    if(session.getAttribute("teacher")!=null){
+            session.removeAttribute("teacher");
+        }
+        if(session.getAttribute("student")!=null){
+	        session.removeAttribute("student");
+        }
 		session.removeAttribute("term");
 		return "/login";
 
@@ -121,7 +126,7 @@ public class LoginController {
             Term term = resultterm.getResult().get(0);
             session.setAttribute("student",student);
             session.setAttribute("term",term);
-            return "/student/selectRace";
+            return "/student/index";
         }else{
             model.addAttribute("errorMessage", "用户名或密码错误，请重新输入");
             model.addAttribute("username", eno);

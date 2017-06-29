@@ -48,6 +48,8 @@ public interface RaceDAO {
 	 */
 	int updateRace(Race race);
 
+	List<Race> findByStuId(@Param("stuid") Integer stuid);
+
 
 //	/**
 //	 * 获取所有任务

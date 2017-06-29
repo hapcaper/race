@@ -86,7 +86,12 @@ public class RaceServiceImpl implements RaceService {
 		return a;
 	}
 
-	@Override
+    @Override
+    public List<Race> findByStuId(Integer stuid) {
+        return raceDAO.findByStuId(stuid);
+    }
+
+    @Override
 	public int updateRace(Race race) {
 		return raceDAO.updateRace(race);
 	}

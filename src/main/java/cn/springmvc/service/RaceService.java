@@ -24,4 +24,6 @@ public interface RaceService {
 	int updateRaceResult(int id, int result);
 	
 	int updateRace(Race race);
+
+	List<Race> findByStuId(Integer stuid);
 }

@@ -17,7 +17,8 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>当前项目</title>
+<title>密码修改</title>
+
 <!-- start: META -->
 <meta charset="utf-8" />
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
@@ -75,20 +76,9 @@
 
 <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 <link rel="shortcut icon" href="favicon.ico" />
-<!-- 
-<script type="text/javascript">
-	function getEmployeeByDepart(var did){
-		//获得name为DeviceName的部门下的所有的员工列表
-		 $.post("manage/getEmployeeByDepartId.do",{"departId":did},  
-                 function(data){
-			 		var i=0;
-                    for(i=0;i<data.size();i++){
-                    	
-                    } 
-                 }); 
-	}
-</script>
- -->
+
+</head>
+
 </head>
 
 <body>
@@ -104,72 +94,77 @@
 						<!-- start: PAGE TITLE & BREADCRUMB -->
 						<ol class="breadcrumb">
 							<li><i class="clip-home-3"></i> <a
-								href="/student/toIndex.do"> 首页 </a></li>
-							<li>竞赛管理</li>
-							<li class="active">申报赛事</li>
+								href="#"> 首页</a>
+							</li>
+							<li>个人中心</li>
+							<li>修改密码</li>
 
 						</ol>
 						<div class="page-header">
-							<h3 class="center">选择赛事类型</h3>
+							<h3>
+								密码修改
+							</h3>
+
 						</div>
 
 						<!-- end: PAGE TITLE & BREADCRUMB -->
 					</div>
-
 				</div>
 				<!-- end: PAGE HEADER -->
-				<!-- start: PAGE CONTENT enctype="multipart/form-data"-->
-				<div class="row">
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 院系赛事
-								<div class="panel-tools"></div>
+				<!-- start: PAGE CONTENT -->
+				<form role="form" class="form-horizontal"
+					action="manage/updatePasswd.do" method="post">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-1">
+						学生学号 </label>
+						<div class="col-sm-4">
+							<input type="hidden" name="id" value="${student.stuName }">
+                            <input
+								type="text" dreadonly="readonly" id="form-field-2"
+								class="form-control" name="name" value="${student.stuNumber}" readonly="true">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-1">
+							学生姓名</label>
+						<div class="col-sm-4">
+							<input type="hidden" name="id" value="${student.id }"> <input
+								type="text" readonly="readonly" id="form-field-3"
+								class="form-control" name="name" value="${student.stuName}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-1">
+							原始密码 </label>
+						<div class="col-sm-4">
+							<input type="text" id="form-field-4" class="form-control"
+								name="oldPasswd">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-1">
+							新密码 </label>
+						<div class="col-sm-4">
+							<input type="text" id="form-field-1" class="form-control"
+								name="newPasswd">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label"> </label>
+						<div class="col-sm-4">
+
+							<div class="col-sm-6">
+								<input type="submit" value="确认" class="btn btn-blue btn-block">
 							</div>
-							<div class="panel-body">
-								<a  href="student/toSoftDesignSelectProject.do">
-								<div class="alert alert-success">
-										<i class="fa fa-check-circle"></i> <strong>软件设计大赛</strong>
-										介绍:软件设计大赛
-									</div></a>
-									
-
-								<div class="alert alert-info">
-									<i class="fa fa-check-circle"></i> <strong>软件学院院ACM竞赛</strong>
-									介绍：ACM竞赛
-								</div>
-								<div class="alert alert-warning">
-									<i class="fa fa-check-circle"></i> <strong>XXXXXXX（预留）</strong>xxxxxxxxxxxxx（预留）.
-								</div>
-
+							<div class="col-sm-6">
+								<input type="button" value="返回" class="btn btn-blue btn-block">
 							</div>
 						</div>
-						<!-- end: ALERTS PANEL -->
 					</div>
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 其他赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-							<a href="manage/toOtherRace.do">
-								<div class="alert alert-success">
-									<i class="fa fa-check-circle"></i> <strong>其他赛事</strong> 介绍：非学院赛事
-								</div>
-							</a>
 
-							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
-				</div>
-
-
-
-
+				</form>
 				<!-- end: PAGE CONTENT-->
 			</div>
 
@@ -225,7 +220,6 @@
 	<script src="assets/plugins/jQuery-Tags-Input/jquery.tagsinput.js"></script>
 	<script
 		src="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
-
 	<script src="assets/plugins/summernote/build/summernote.min.js"></script>
 	<script src="assets/plugins/ckeditor/ckeditor.js"></script>
 	<script src="assets/plugins/ckeditor/adapters/jquery.js"></script>
@@ -237,10 +231,6 @@
 		src="assets/plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
 	<script src="assets/js/ui-buttons.js"></script>
 
-	<script
-		src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-	<script src="assets/js/form-validation.js"></script>
-
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
 	<script>
@@ -249,8 +239,8 @@
 			//Index.init();
 			FormElements.init();
 			UIButtons.init();
-			FormValidator.init();
 		});
 	</script>
+
 </body>
 </html>

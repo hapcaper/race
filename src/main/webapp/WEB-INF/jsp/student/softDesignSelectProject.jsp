@@ -104,13 +104,13 @@
 						<!-- start: PAGE TITLE & BREADCRUMB -->
 						<ol class="breadcrumb">
 							<li><i class="clip-home-3"></i> <a
-								href="/student/toIndex.do"> 首页 </a></li>
+								href="manage/depanmentIndex.do"> 首页 </a></li>
 							<li>竞赛管理</li>
 							<li class="active">申报赛事</li>
 
 						</ol>
 						<div class="page-header">
-							<h3 class="center">选择赛事类型</h3>
+							<h3 class="center">选择参赛作品</h3>
 						</div>
 
 						<!-- end: PAGE TITLE & BREADCRUMB -->
@@ -120,51 +120,57 @@
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT enctype="multipart/form-data"-->
 				<div class="row">
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 院系赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-								<a  href="student/toSoftDesignSelectProject.do">
-								<div class="alert alert-success">
-										<i class="fa fa-check-circle"></i> <strong>软件设计大赛</strong>
-										介绍:软件设计大赛
-									</div></a>
-									
+					<form role="form" class="form-horizontal" enctype="multipart/form-data"
+						action="manage/addRace.do" method="post">
+						<div class="panel-body">
+							<table class="table table-condensed table-hover"
+								id="sample-table-3">
+								<thead>
+									<tr>
+										<th class="center hidden-xs">
+											<div class="checkbox-table">
+												<label> </label>
+											</div>
+										</th>
+										<th>项目名称</th>
+										<th class="hidden-xs">参与人员</th>
+										<th><i class="fa fa-time"></i> 项目简介</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${projectlist }"  var="project">
+										<tr>
+											<td class="center hidden-xs">
+												<div class="checkbox-table">
+													<label> <input type="checkbox" class="flat-grey" name="a[]"
+														value="${project.proname }">
+													</label>
+												</div>
+											</td>
+											<td>${project.proname }</td>
+											<td class="hidden-xs">${project.persons }</td>
+											<td>${project.description }</td>
+										</tr>
+									</c:forEach>
 
-								<div class="alert alert-info">
-									<i class="fa fa-check-circle"></i> <strong>软件学院院ACM竞赛</strong>
-									介绍：ACM竞赛
-								</div>
-								<div class="alert alert-warning">
-									<i class="fa fa-check-circle"></i> <strong>XXXXXXX（预留）</strong>xxxxxxxxxxxxx（预留）.
-								</div>
 
+								</tbody>
+							</table>
+							<div class="form-group">
+
+								<div class="col-sm-6">
+									<div class="col-sm-6">
+										<input type="submit" value="确定" class="btn btn-blue btn-block">
+									</div>
+									<div class="col-sm-6">
+										<input type="button" value="返回" class="btn btn-blue btn-block"
+											onclick="javascript:history.go(-1);">
+									</div>
+								</div>
 							</div>
 						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 其他赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-							<a href="manage/toOtherRace.do">
-								<div class="alert alert-success">
-									<i class="fa fa-check-circle"></i> <strong>其他赛事</strong> 介绍：非学院赛事
-								</div>
-							</a>
+					</form>
 
-							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
 				</div>
 
 

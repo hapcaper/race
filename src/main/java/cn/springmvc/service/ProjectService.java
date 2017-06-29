@@ -30,7 +30,9 @@ public interface ProjectService {
 	ResultDO<List<Project>> getProjectByTid(String tid);
 
 
-	ResultDO<List<Project>> getProjectByProname(@Param("proname") String proname);
+	ResultDO<List<Project>> getProjectByProname(String proname);
+
+    List<Project> findByStuid(Integer stuid);
 	
 
 //	/**

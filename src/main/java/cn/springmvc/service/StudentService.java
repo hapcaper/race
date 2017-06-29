@@ -20,5 +20,8 @@ public interface StudentService {
 
     public List<Student> findByStuId(String stuId);
 
+    public List<Student> find();
+
+    public List<Student> findByStatus(Integer status);
 
 }

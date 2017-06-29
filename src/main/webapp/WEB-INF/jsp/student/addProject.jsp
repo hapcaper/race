@@ -17,7 +17,8 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>当前项目</title>
+<title>高校竞赛系统</title>
+
 <!-- start: META -->
 <meta charset="utf-8" />
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
@@ -75,20 +76,6 @@
 
 <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 <link rel="shortcut icon" href="favicon.ico" />
-<!-- 
-<script type="text/javascript">
-	function getEmployeeByDepart(var did){
-		//获得name为DeviceName的部门下的所有的员工列表
-		 $.post("manage/getEmployeeByDepartId.do",{"departId":did},  
-                 function(data){
-			 		var i=0;
-                    for(i=0;i<data.size();i++){
-                    	
-                    } 
-                 }); 
-	}
-</script>
- -->
 </head>
 
 <body>
@@ -104,72 +91,133 @@
 						<!-- start: PAGE TITLE & BREADCRUMB -->
 						<ol class="breadcrumb">
 							<li><i class="clip-home-3"></i> <a
-								href="/student/toIndex.do"> 首页 </a></li>
+								href="manage/student/toIndex.do"> 首页 </a></li>
 							<li>竞赛管理</li>
-							<li class="active">申报赛事</li>
+							<li class="active">添加项目</li>
 
 						</ol>
 						<div class="page-header">
-							<h3 class="center">选择赛事类型</h3>
+							<h3>
+								请填写项目的各项信息<small> (注：申请人为项目组长)</small>
+							</h3>
+
 						</div>
 
 						<!-- end: PAGE TITLE & BREADCRUMB -->
 					</div>
-
 				</div>
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT enctype="multipart/form-data"-->
-				<div class="row">
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 院系赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-								<a  href="student/toSoftDesignSelectProject.do">
-								<div class="alert alert-success">
-										<i class="fa fa-check-circle"></i> <strong>软件设计大赛</strong>
-										介绍:软件设计大赛
-									</div></a>
-									
-
-								<div class="alert alert-info">
-									<i class="fa fa-check-circle"></i> <strong>软件学院院ACM竞赛</strong>
-									介绍：ACM竞赛
+				<form role="form" class="form-horizontal"
+					enctype="multipart/form-data" action="manage/addProject.do"
+					method="post">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-1">
+							项目名称<span class="symbol required"></span>
+						</label>
+						<div class="col-sm-6">
+							<input type="text" placeholder="项目名称" id="form-field-2"
+								class="form-control" name="proname">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-2">
+							项目文档<span class="symbol required"></span>
+						</label>
+						<div class="col-sm-6">
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+								<div class="fileupload-new thumbnail"
+									style="width: 200px; height: 150px;">
+									<img
+										src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image"
+										alt="" />
 								</div>
-								<div class="alert alert-warning">
-									<i class="fa fa-check-circle"></i> <strong>XXXXXXX（预留）</strong>xxxxxxxxxxxxx（预留）.
+								<div class="fileupload-preview fileupload-exists thumbnail"
+									style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+								<div>
+									<span class="btn btn-light-grey btn-file"><span
+										class="fileupload-new"><i class="fa fa-picture-o"></i>
+											选择文件</span><span class="fileupload-exists"><i
+											class="fa fa-picture-o"></i> 更换文件</span> <input type="file"
+										name="document"> </span> <a href="#"
+										class="btn fileupload-exists btn-light-grey"
+										data-dismiss="fileupload"> <i class="fa fa-times"></i>
+										删除文件
+									</a>
 								</div>
-
 							</div>
 						</div>
-						<!-- end: ALERTS PANEL -->
 					</div>
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 其他赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-							<a href="manage/toOtherRace.do">
-								<div class="alert alert-success">
-									<i class="fa fa-check-circle"></i> <strong>其他赛事</strong> 介绍：非学院赛事
-								</div>
-							</a>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" >
+							人员组成: <span class="symbol required"></span>
+						</label>
+						<div class="col-sm-6">
+							<input type="text" placeholder="项目人员" id="form-field-1"
+								class="form-control" name="persons">
+						</div>
+					</div>
 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="form-field-select-4">
+                            人员组成
+                        </label>
+                        <div class="col-sm-6">
+                            <select multiple="multiple" id="form-field-select-4" class="form-control search-select">
+                                <c:forEach items="${studentList}" var="stu">
+                                    <option value="${stu.id}">${stu.stuName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="form-field-select-3">
+                            选择导师（可选）
+                        </label>
+                        <div class="col-sm-6">
+                            <select id="form-field-select-3" class="form-control search-select">
+                                <option value="">&nbsp;</option>
+                                <c:forEach items="${teacherList}" var="teacher">
+                                    <option value="${teacher.id}">${teacher.tname}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+
+                    </div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-2">
+							项目简介 <span class="symbol required"></span>
+						</label>
+
+						<div class="col-sm-6">
+							<textarea class="form-control" placeholder="项目的大体描述"
+								name="description"></textarea>
+							<br>
+							<br>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-field-1">
+						</label>
+						<div class="col-sm-6">
+							<div class="col-sm-6">
+								<input type="submit" value="完成" class="btn btn-blue btn-block">
+							</div>
+							<div class="col-sm-6">
+								<input type="button" value="返回" class="btn btn-blue btn-block"
+									onclick="javascript:history.go(-1);">
 							</div>
 						</div>
-						<!-- end: ALERTS PANEL -->
 					</div>
-				</div>
 
-
-
-
+				</form>
+				
 				<!-- end: PAGE CONTENT-->
 			</div>
 
@@ -252,5 +300,6 @@
 			FormValidator.init();
 		});
 	</script>
+
 </body>
 </html>

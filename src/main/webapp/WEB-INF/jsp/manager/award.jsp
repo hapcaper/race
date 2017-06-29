@@ -122,7 +122,7 @@
 							参赛项目<span class="symbol required"></span>
 						</label>
 						<div class="col-sm-4">
-							<input type="text" placeholder="项目名称" id="form-field-1" disabled="disabled"
+							<input type="text" placeholder="项目名称" id="form-field-4" disabled="disabled"
 								class="form-control" name="proname" value="${project.proname }">
 						</div>
 					</div>
@@ -131,7 +131,7 @@
 							指导教师<span class="symbol required"></span>
 						</label>
 						<div class="col-sm-4">
-							<input type="text" placeholder="项目名称" id="form-field-1" disabled="disabled"
+							<input type="text" placeholder="项目名称" id="form-field-2" disabled="disabled"
 								class="form-control" name="rteacher" value="${race.rteacher }">
 						</div>
 					</div>
@@ -140,7 +140,7 @@
 							项目简介<span class="symbol required"></span>
 						</label>
 						<div class="col-sm-4">
-							<input type="text" placeholder="项目名称" id="form-field-1" disabled="disabled"
+							<input type="text" placeholder="项目名称" id="form-field-3" disabled="disabled"
 								class="form-control" name="description" value="${project.description }">
 						</div>
 					</div>

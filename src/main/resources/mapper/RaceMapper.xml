@@ -79,4 +79,11 @@
 			where id = #{id}
 		</set>
 	</update>
+
+    <select id="findByStuId" resultMap="Race" >
+        SELECT * from race WHERE race.id IN (
+            SELECT stu_race.race_id FROM stu_race WHERE stu_race.stu_id = #{stuid}
+        )
+
+    </select>
 </mapper> 

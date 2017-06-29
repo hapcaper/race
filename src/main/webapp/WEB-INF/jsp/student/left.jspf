@@ -23,10 +23,10 @@
 						class="active" id='systemA2'> <i class="clip-user-2"></i> <span
 							class="title"> 个人中心 </span> <i class="icon-arrow"></i> </a>
 						<ul class="sub-menu">
-							<li id="myData"><a href="manage/toEmployeeDetail.do"> <span
+							<li id="myData"><a href="student/toStudentDetail.do"> <span
 									class="title"> 个人资料 </span> </a>
 							</li>
-							<li id="updatePasswd"><a href="manage/toUpdatePasswd.do">
+							<li id="updatePasswd"><a href="student/toUpdatePassword.do">
 									<span class="title"> 修改密码 </span> </a>
 							</li>
 
@@ -38,16 +38,16 @@
 						class="active" id='systemA'> <i class="clip-folder"></i> <span
 							class="title"> 赛事管理 </span> <i class="icon-arrow"></i> </a>
 						<ul class="sub-menu">
-								<li id="addProject"><a href="manage/toAddProject.do"> <span
+								<li id="addProject"><a href="student/toAddProject.do"> <span
 										class="title"> 添加项目 </span> </a>
 								</li>
-								<li id="applyRace"><a href="manage/toSelectRace.do"> <span
+								<li id="applyRace"><a href="student/toSelectRace.do"> <span
 										class="title"> 申报赛事 </span> </a>
 								</li>
-								<li id="myRaceList"><a href="manage/toMyRaceList.do"> <span
+								<li id="myRaceList"><a href="student/toMyRaceList.do"> <span
 										class="title"> 我的赛事 </span> </a>
 								</li>
-								<li id="myProjectList"><a href="manage/toMyProjectList.do"> <span
+								<li id="myProjectList"><a href="student/toMyProjectList.do"> <span
 										class="title"> 我的项目 </span> </a>
 								</li>
 						</ul>

@@ -43,15 +43,16 @@ public interface Constance {
 	 * 预约管理
 	 */
 	public static final String ORDER_MANAGE="orderManage";
-	/**
-	 * 个人中心
-	 */
-	public static final String PERSONAL_CENTER = "personalCenter";
-	
+
 	/**
 	 * 赛事管理
 	 */
 	public static final String RACE_MANAGE = "raceManage";
+
+    /**
+     *用户中心
+     */
+    public static final String PERSONAL_CENTER = "personalCenter";
 	
 	/*
 	 * 二级导航
@@ -166,4 +167,10 @@ public interface Constance {
 	public static final String TEACHER_WORKT = "teacherwork";
 	
 	public static final String ALL_RACE_LIST = "allRaceList";
+
+    /**
+     * 用户信息
+     */
+	public static final String USER_DETAIL="userdetail";
+
 }

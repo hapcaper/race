@@ -64,4 +64,10 @@ public class ProjectServiceImp implements ProjectService {
 		
 	}
 
+    @Override
+    public List<Project> findByStuid(Integer stuid) {
+	    List<Project> projectList = projectDAO.findByStuid(stuid);
+        return projectList;
+    }
+
 }

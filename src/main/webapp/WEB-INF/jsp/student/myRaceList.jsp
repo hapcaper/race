@@ -104,67 +104,75 @@
 						<!-- start: PAGE TITLE & BREADCRUMB -->
 						<ol class="breadcrumb">
 							<li><i class="clip-home-3"></i> <a
-								href="/student/toIndex.do"> 首页 </a></li>
+								href="manage/depanmentIndex.do"> 首页 </a></li>
 							<li>竞赛管理</li>
 							<li class="active">申报赛事</li>
 
 						</ol>
-						<div class="page-header">
-							<h3 class="center">选择赛事类型</h3>
-						</div>
+
 
 						<!-- end: PAGE TITLE & BREADCRUMB -->
 					</div>
+					<div class="page-header">
+						<br> <br>
+						<h3 class="center">
+							我的所有赛事<small>（当前学年：${term.term+2015 }）</small>
+						</h3>
+					</div>
+					<%--<form method="get" id="frm" class="form-inline"--%>
+						<%--action="manage/queryMyRace.do">--%>
+						<%--<label>&nbsp;&nbsp;选择学年: --%>
+						<%--<select name="t" id="c" class="form-control" >--%>
+						<%--<c:forEach items="${termlist }" var="t">--%>
+							<%--<option value="${t.term }">${t.term +2015}</option>--%>
+						<%--</c:forEach>--%>
+								<%----%>
+						<%--</select>--%>
+						<%--</label>--%>
+						<%--<button type="submit" class="btn btn-primary"--%>
+							<%--style="margin-left: 30px">查询</button>--%>
+					<%--</form>--%>
 
 				</div>
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT enctype="multipart/form-data"-->
-				<div class="row">
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 院系赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-								<a  href="student/toSoftDesignSelectProject.do">
-								<div class="alert alert-success">
-										<i class="fa fa-check-circle"></i> <strong>软件设计大赛</strong>
-										介绍:软件设计大赛
-									</div></a>
-									
+				<div class="panel-body">
+					<table class="table table-hover" id="sample-table-1">
+						<thead>
+							<tr>
+								<th>赛事名称</th>
+								<th class="hidden-xs">项目名称</th>
+								<th>所属人员</th>
+								<th class="hidden-xs">进行状态</th>
+								<th>所获奖项</th>
+								<th>详情</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${raceList }" var="race" >
+								<tr>
+									<td>${race.rname}</td>
+									<td class="hidden-xs">${race.proname }</td>
+									<td>${race.group}</td>
+									<td class="hidden-xs"><c:if test="${race.progress == 1 }">
+											<span class="label label-warning"> 赛事进行中</span>
+										</c:if> <c:if test="${race.progress == 2 }">
+											<span class="label label-success"> 赛事已完成</span>
+										</c:if></td>
+									<td class="hidden-xs"><c:if test="${race.progress == 1 }"></c:if>
+										<c:if test="${race.progress == 2 }">
+											<c:if test="${race.result == 1 }">一等奖</c:if>
+											<c:if test="${race.result == 2 }">二等奖</c:if>
+											<c:if test="${race.result == 3 }">三等奖</c:if>
+											<c:if test="${race.result == 4 }">其他奖项</c:if>
+										</c:if></td>
+									<td><a href="student/toRaceDetail.do?rid=${race.id}">查看</a></td>
+								</tr>
+							</c:forEach>
 
-								<div class="alert alert-info">
-									<i class="fa fa-check-circle"></i> <strong>软件学院院ACM竞赛</strong>
-									介绍：ACM竞赛
-								</div>
-								<div class="alert alert-warning">
-									<i class="fa fa-check-circle"></i> <strong>XXXXXXX（预留）</strong>xxxxxxxxxxxxx（预留）.
-								</div>
 
-							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 其他赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-							<a href="manage/toOtherRace.do">
-								<div class="alert alert-success">
-									<i class="fa fa-check-circle"></i> <strong>其他赛事</strong> 介绍：非学院赛事
-								</div>
-							</a>
-
-							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
+						</tbody>
+					</table>
 				</div>
 
 

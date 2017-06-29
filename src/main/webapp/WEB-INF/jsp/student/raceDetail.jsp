@@ -17,7 +17,8 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>当前项目</title>
+<title>申请项目</title>
+
 <!-- start: META -->
 <meta charset="utf-8" />
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
@@ -75,26 +76,12 @@
 
 <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 <link rel="shortcut icon" href="favicon.ico" />
-<!-- 
-<script type="text/javascript">
-	function getEmployeeByDepart(var did){
-		//获得name为DeviceName的部门下的所有的员工列表
-		 $.post("manage/getEmployeeByDepartId.do",{"departId":did},  
-                 function(data){
-			 		var i=0;
-                    for(i=0;i<data.size();i++){
-                    	
-                    } 
-                 }); 
-	}
-</script>
- -->
 </head>
 
 <body>
 	<div class="main-container">
-		<%@ include file="top.jspf"%>
-		<%@ include file="left.jspf"%>
+		<%@ include file="../manager/top.jspf"%>
+		<%@ include file="../manager/left.jspf"%>
 		<!-- start: PAGE -->
 		<div class="main-content">
 			<div class="container">
@@ -104,76 +91,94 @@
 						<!-- start: PAGE TITLE & BREADCRUMB -->
 						<ol class="breadcrumb">
 							<li><i class="clip-home-3"></i> <a
-								href="/student/toIndex.do"> 首页 </a></li>
+								href="manage/depanmentIndex.do"> 首页 </a></li>
 							<li>竞赛管理</li>
-							<li class="active">申报赛事</li>
+							<li class="active">我的赛事</li>
 
 						</ol>
-						<div class="page-header">
-							<h3 class="center">选择赛事类型</h3>
-						</div>
+						<div class="page-header"></div>
 
 						<!-- end: PAGE TITLE & BREADCRUMB -->
 					</div>
-
 				</div>
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT enctype="multipart/form-data"-->
-				<div class="row">
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 院系赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-								<a  href="student/toSoftDesignSelectProject.do">
-								<div class="alert alert-success">
-										<i class="fa fa-check-circle"></i> <strong>软件设计大赛</strong>
-										介绍:软件设计大赛
-									</div></a>
-									
-
-								<div class="alert alert-info">
-									<i class="fa fa-check-circle"></i> <strong>软件学院院ACM竞赛</strong>
-									介绍：ACM竞赛
+				<table width="100%">
+					<tr>
+						<td align="center" width="40%" valign="top">
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+								<div class="fileupload-new thumbnail"
+									style="width: 200px; height: 150px;">
+									<img src="${race.picture }" alt="" />
 								</div>
-								<div class="alert alert-warning">
-									<i class="fa fa-check-circle"></i> <strong>XXXXXXX（预留）</strong>xxxxxxxxxxxxx（预留）.
-								</div>
-
+								<div class="fileupload-preview fileupload-exists thumbnail"
+									style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+								
 							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 其他赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-							<a href="manage/toOtherRace.do">
-								<div class="alert alert-success">
-									<i class="fa fa-check-circle"></i> <strong>其他赛事</strong> 介绍：非学院赛事
-								</div>
-							</a>
+						</td>
+						<td align="left" valign="top">
+							<table class="table table-striped table-bordered table-hover">
+								<tr>
+									<td width="20%">赛事名称：</td>
+									<td>${race.rname}</td>
+								</tr>
 
-							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
-				</div>
+								<tr>
+									<td width="20%">指导教师：</td>
+									<td>${race.rteacher}</td>
+								</tr>
+								<tr>
+									<td width="20%">项目人员：</td>
+									<td>${race.group}</td>
+								</tr>
 
+								<tr>
+									<td>项目名称：</td>
+									<td>${race.proname }</td>
+								</tr>
 
+								<tr>
+									<td>赛事级别：</td>
+									<td><c:if test="${race.rlevel == 1 }">校级</c:if> <c:if
+											test="${race.rlevel == 2 }">省级及以上</c:if></td>
+								</tr>
+								<tr>
+									<td>进行状态：</td>
+									<td><c:if test="${race.progress == 1 }">进行中</c:if> <c:if
+											test="${race.progress == 2 }">已完成</c:if></td>
+								</tr>
+								<tr>
+									<td>所获奖项：</td>
+									<td>
+									<c:if test="${race.result == 1 }">一等奖</c:if> 
+									<c:if test="${race.result == 2 }">二等奖</c:if>
+									<c:if test="${race.result == 3 }">三等奖</c:if>
+									<c:if test="${race.result == 4 }">其他奖项</c:if>
+									</td>
+								</tr>
 
+							</table>
+
+						</td>
+
+					</tr>
+
+					<tr height="10px">
+						<td colspan="2" align="right"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right">
+							<%--<input type="submit" value="修改" class="btn btn-blue">
+					--%> <input type="button" value="返回" class="btn btn-blue"
+							onclick="javascript:history.go(-1);">
+						</td>
+					</tr>
+				</table>
 
 				<!-- end: PAGE CONTENT-->
 			</div>
 
-			<%@ include file="footer.jspf"%>
+			<%@ include file="../manager/footer.jspf"%>
 		</div>
 	</div>
 	<!-- end: PAGE -->
@@ -252,5 +257,6 @@
 			FormValidator.init();
 		});
 	</script>
+
 </body>
 </html>

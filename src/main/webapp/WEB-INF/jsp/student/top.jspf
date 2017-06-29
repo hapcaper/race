@@ -29,9 +29,9 @@
 								<!-- <img src="assets/images/avatar-1-small.jpg" class="circle-img" alt=""> -->
 							<c:choose>
 							
-								<c:when test="${!empty sessionScope.teacher }">
+								<c:when test="${!empty sessionScope.student }">
 									<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
-										<span class="username">${sessionScope.teacher.tname }</span>
+										<span class="username">${sessionScope.student.stuName }</span>
 										<i class="clip-chevron-down"></i>
 									</a>
 								

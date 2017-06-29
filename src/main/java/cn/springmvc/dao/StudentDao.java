@@ -22,4 +22,10 @@ public interface StudentDao {
 
 	List<Student> findByStuId(@Param("stuId")String stuId);
 
+	List<Student> find();
+
+	List<Student> findByStatus(@Param("status")Integer status);
+
+
+
 }

@@ -163,9 +163,7 @@ public class RaceController {
 		race.setTerm(term.getTerm());
 		race.setTid(teacher.getTid());
 		race.setRteacher(teacher.getTname());
-		ResultDO<List<Project>> result = projectService.getProjectByTid(teacher
-				.getTid());
-
+		ResultDO<List<Project>> result = projectService.getProjectByTid(teacher.getTid());
 		model.addAttribute("projectlist", result.getResult());
 		request.setAttribute("race", race);
 		return "manager/softDesignSelectProject";

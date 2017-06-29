@@ -17,7 +17,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>当前项目</title>
+<title>高校竞赛系统</title>
 <!-- start: META -->
 <meta charset="utf-8" />
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
@@ -104,13 +104,13 @@
 						<!-- start: PAGE TITLE & BREADCRUMB -->
 						<ol class="breadcrumb">
 							<li><i class="clip-home-3"></i> <a
-								href="/student/toIndex.do"> 首页 </a></li>
+								href="manage/depanmentIndex.do"> 首页 </a></li>
 							<li>竞赛管理</li>
 							<li class="active">申报赛事</li>
 
 						</ol>
 						<div class="page-header">
-							<h3 class="center">选择赛事类型</h3>
+							<h3 class="center">我的所有项目</h3>
 						</div>
 
 						<!-- end: PAGE TITLE & BREADCRUMB -->
@@ -119,52 +119,30 @@
 				</div>
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT enctype="multipart/form-data"-->
-				<div class="row">
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 院系赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-								<a  href="student/toSoftDesignSelectProject.do">
-								<div class="alert alert-success">
-										<i class="fa fa-check-circle"></i> <strong>软件设计大赛</strong>
-										介绍:软件设计大赛
-									</div></a>
-									
 
-								<div class="alert alert-info">
-									<i class="fa fa-check-circle"></i> <strong>软件学院院ACM竞赛</strong>
-									介绍：ACM竞赛
-								</div>
-								<div class="alert alert-warning">
-									<i class="fa fa-check-circle"></i> <strong>XXXXXXX（预留）</strong>xxxxxxxxxxxxx（预留）.
-								</div>
+				<div class="panel-body">
+					<table class="table table-hover" id="sample-table-1">
+						<thead>
+							<tr>
+								<th class="hidden-xs">项目名称</th>
+								<th>所属人员</th>
+								<th class="hidden-xs">项目简介</th>
+                                <th>指导教师</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${projectlist }" var="project" varStatus="loop">
+								<tr>
+									<td>${project.proname }</td>
+									<td>${project.persons }</td>
+									<td>${project.description }</td>
+                                    <td>${teacherList[loop.count-1].tname }</td>
+								</tr>
+							</c:forEach>
 
-							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
-					<div class="col-md-12">
-						<!-- start: ALERTS PANEL -->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<i class="fa fa-tasks"></i> 其他赛事
-								<div class="panel-tools"></div>
-							</div>
-							<div class="panel-body">
-							<a href="manage/toOtherRace.do">
-								<div class="alert alert-success">
-									<i class="fa fa-check-circle"></i> <strong>其他赛事</strong> 介绍：非学院赛事
-								</div>
-							</a>
 
-							</div>
-						</div>
-						<!-- end: ALERTS PANEL -->
-					</div>
+						</tbody>
+					</table>
 				</div>
 
 
