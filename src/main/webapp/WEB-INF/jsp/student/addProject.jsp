@@ -91,7 +91,7 @@
 						<!-- start: PAGE TITLE & BREADCRUMB -->
 						<ol class="breadcrumb">
 							<li><i class="clip-home-3"></i> <a
-								href="manage/student/toIndex.do"> 首页 </a></li>
+								href="student/toIndex.do"> 首页 </a></li>
 							<li>竞赛管理</li>
 							<li class="active">添加项目</li>
 
@@ -109,14 +109,14 @@
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT enctype="multipart/form-data"-->
 				<form role="form" class="form-horizontal"
-					enctype="multipart/form-data" action="manage/addProject.do"
+					enctype="multipart/form-data" action="student/stuAddProject.do"
 					method="post">
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="form-field-1">
+						<label class="col-sm-2 control-label" >
 							项目名称<span class="symbol required"></span>
 						</label>
 						<div class="col-sm-6">
-							<input type="text" placeholder="项目名称" id="form-field-2"
+							<input type="text" placeholder="项目名称"  id="form-field-2"
 								class="form-control" name="proname">
 						</div>
 					</div>
@@ -136,26 +136,24 @@
 								<div class="fileupload-preview fileupload-exists thumbnail"
 									style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 								<div>
-									<span class="btn btn-light-grey btn-file"><span
-										class="fileupload-new"><i class="fa fa-picture-o"></i>
-											选择文件</span><span class="fileupload-exists"><i
-											class="fa fa-picture-o"></i> 更换文件</span> <input type="file"
-										name="document"> </span> <a href="#"
-										class="btn fileupload-exists btn-light-grey"
-										data-dismiss="fileupload"> <i class="fa fa-times"></i>
-										删除文件
+									<span class="btn btn-light-grey btn-file">
+                                        <span
+										class="fileupload-new"><i class="fa fa-picture-o">
+
+                                    </i>
+											选择文件
+                                        </span>
+                                        <span class="fileupload-exists">
+                                            <i class="fa fa-picture-o">
+
+                                            </i> 更换文件</span>
+                                        <input type="file" name="document">
+                                    </span>
+                                    <a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
+                                        <i class="fa fa-times"></i>删除文件
 									</a>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" >
-							人员组成: <span class="symbol required"></span>
-						</label>
-						<div class="col-sm-6">
-							<input type="text" placeholder="项目人员" id="form-field-1"
-								class="form-control" name="persons">
 						</div>
 					</div>
 
@@ -164,9 +162,9 @@
                             人员组成
                         </label>
                         <div class="col-sm-6">
-                            <select multiple="multiple" id="form-field-select-4" class="form-control search-select">
+                            <select name="personsId" multiple="multiple" id="form-field-select-4" class="form-control search-select">
                                 <c:forEach items="${studentList}" var="stu">
-                                    <option value="${stu.id}">${stu.stuName}</option>
+                                    <option  value="${stu.id}">${stu.stuName}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -178,10 +176,10 @@
                             选择导师（可选）
                         </label>
                         <div class="col-sm-6">
-                            <select id="form-field-select-3" class="form-control search-select">
+                            <select name="tId" id="form-field-select-3" class="form-control search-select">
                                 <option value="">&nbsp;</option>
                                 <c:forEach items="${teacherList}" var="teacher">
-                                    <option value="${teacher.id}">${teacher.tname}</option>
+                                    <option  value="${teacher.id}">${teacher.tname}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -203,7 +201,7 @@
 
 
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="form-field-1">
+						<label class="col-sm-2 control-label" >
 						</label>
 						<div class="col-sm-6">
 							<div class="col-sm-6">

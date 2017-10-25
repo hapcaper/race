@@ -80,8 +80,8 @@
 
 <body>
 	<div class="main-container">
-		<%@ include file="../manager/top.jspf"%>
-		<%@ include file="../manager/left.jspf"%>
+		<%@ include file="top.jspf"%>
+		<%@ include file="left.jspf"%>
 		<!-- start: PAGE -->
 		<div class="main-content">
 			<div class="container">
@@ -178,7 +178,7 @@
 				<!-- end: PAGE CONTENT-->
 			</div>
 
-			<%@ include file="../manager/footer.jspf"%>
+			<%@ include file="footer.jspf"%>
 		</div>
 	</div>
 	<!-- end: PAGE -->

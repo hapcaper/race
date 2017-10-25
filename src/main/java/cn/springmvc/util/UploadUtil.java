@@ -9,15 +9,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class UploadUtil {
 	
-	public static String uploadFile(MultipartFile file,HttpServletRequest request,String name){
-    	String photoFile="";
+	public static String uploadFile(MultipartFile file,HttpServletRequest request){
+    	String docFile="";
     	if(file!=null){
 			String path = request.getSession().getServletContext()
-					.getRealPath("upload/user");
+					.getRealPath("document/");
 			String fileName = file.getOriginalFilename();
 			if(!StringUtils.isEmpty(fileName)&&StringUtils.hasLength(fileName)){
-				fileName = name 
-						+ fileName.substring(fileName.lastIndexOf("."));
+
 				File targetFile = new File(path, fileName);
 				if (!targetFile.exists()) {
 					targetFile.mkdirs();
@@ -28,10 +27,10 @@ public class UploadUtil {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				photoFile = "upload/user" + fileName;
+                docFile = "document/" + fileName;
 			}
 		}
-    	return photoFile;
+    	return docFile;
 	}
 
 }

@@ -1,0 +1,27 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.gitignore
+.idea/
+race-student/
+src/main/java/cn/springmvc/dao/StuRaceDao.java
+src/main/java/cn/springmvc/entry/StuRace.sql
+src/main/java/cn/springmvc/service/StuRaceService.java
+src/main/java/cn/springmvc/service/impl/DataSatisticsServiceImpl.java
+src/main/java/cn/springmvc/service/impl/StudentServiceImpl.java
+src/main/resources/mapper/StuProMapper.xml
+src/main/resources/mapper/StuRaceMapper.xml
+src/main/webapp/WEB-INF/jsp/student/applyRace.jsp
+src/main/webapp/WEB-INF/jsp/student/othersSelectProject.jsp
+src/main/webapp/css/
+src/main/webapp/favicon.ico
+src/main/webapp/img/document/
+src/main/webapp/img/picture/
+src/test/
+target/
