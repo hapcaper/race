@@ -430,7 +430,7 @@ public class RaceController {
 
 	@RequestMapping("/award")
 	public String award(Model model, HttpServletRequest request,
-			HttpSession session, @RequestParam("raceid") int raceid) {
+			HttpSession session, @RequestParam("raceid") int raceid,@RequestParam("result") int result) {
 		model.addAttribute("menuSelected1", Constance.RACE_MANAGE);
 		model.addAttribute("menuSelected2", Constance.ALL_RACE_LIST);
 		Term term = (Term) session.getAttribute("term");
@@ -438,25 +438,7 @@ public class RaceController {
 		Project project = (Project) session.getAttribute("project");
 		Teacher t = teacherService.getTeacherByTid(race.getTid()).getResult()
 				.get(0);
-		int result = 0;
-		// 1.建工厂
-		DiskFileItemFactory factory = new DiskFileItemFactory();
 
-		// 2.创建解析器
-		ServletFileUpload fileupload = new ServletFileUpload(factory);
-
-		// 3.解析request
-		List<FileItem> list = null;
-		try {
-			list = fileupload.parseRequest(request);
-		} catch (FileUploadException e) {
-			e.printStackTrace();
-		}
-		for (FileItem f : list) {
-			if (f.getFieldName().equals("result")) {
-				result = Integer.parseInt(f.getString());
-			}
-		}
 		System.out.println(race + "/---------------/");
 		raceService.updateRaceResult(raceid, result);
 		workService.addWork(race, project, t, term.getTerm());

@@ -146,16 +146,16 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="form-field-6">
+						<label class="col-sm-2 control-label" >
 							人员组成: <span class="symbol required"></span>
 						</label>
 						<div class="col-sm-4">
-							<input type="text" id="form-field-1" disabled="disabled"
+							<input type="text" id="form-field-2" disabled="disabled"
 								class="form-control" name="persons" value="${project.persons }">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="form-field-6">
+						<label class="col-sm-2 control-label" >
 							选择奖项: <span class="symbol required"></span>
 						</label>
 						<div class="col-sm-4">
