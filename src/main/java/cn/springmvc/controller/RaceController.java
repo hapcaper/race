@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -340,7 +341,9 @@ public class RaceController {
 			float f = workService.getMaxWorkByTeacher(t, term.getTerm());
 			wlist.add(f);
 		}
-		request.setAttribute("termlist", termResult.getResult());
+		List ts = termResult.getResult();
+		Collections.reverse(ts);
+		request.setAttribute("termlist", ts);
 		request.setAttribute("tlist", tlist);
 		request.setAttribute("wlist", wlist);
 		return "leader/teacherWorkList";
@@ -382,7 +385,9 @@ public class RaceController {
 					.getResult().get(0);
 			prolist.add(p);
 		}
-		request.setAttribute("termlist", termresult.getResult());
+		List ts = termresult.getResult();
+        Collections.reverse(ts);
+		request.setAttribute("termlist", ts);
 		request.setAttribute("racelist", racelist);
 		request.setAttribute("prolist", prolist);
 		return "leader/allRaceList";
@@ -525,4 +530,6 @@ public class RaceController {
 		return "redirect:/manage/toRaceDetail.do?rid=" + race.getId();
 
 	}
+
+
 }

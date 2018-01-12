@@ -43,13 +43,13 @@ public class StudentController {
     TeacherService teacherService;
 
 
-//    @RequestMapping(value = "/toStudentLogin")
+    //    @RequestMapping(value = "/toStudentLogin")
 //    public String toStudentLogin(HttpSession session, HttpServletRequest request) {
 //
 //        return "student/studentLogin";
 //    }
     @RequestMapping(value = "/toIndex")
-    public String toIndex(){
+    public String toIndex() {
         return "student/index";
     }
 
@@ -90,7 +90,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/stuAddProject")
-    public String stuAddProject(HttpServletRequest request , Model model, @RequestParam("proname") String proname , HttpSession session,
+    public String stuAddProject(HttpServletRequest request, Model model, @RequestParam("proname") String proname, HttpSession session,
                                 @RequestParam("document") MultipartFile document,
                                 @RequestParam("personsId") Integer[] personsId,
                                 @RequestParam("tId") Integer tId,
@@ -101,32 +101,32 @@ public class StudentController {
         List<Student> stuList = new ArrayList<Student>();
         List<StuPro> stuProList = new ArrayList<StuPro>();
         Project project = new Project();
-        int flag = 1 ;  //判定是否要添加数据库
-        if(proname!=null&&!projectService.getProjectByProname(proname).isSuccess()){
+        int flag = 1;  //判定是否要添加数据库
+        if (proname != null && !projectService.getProjectByProname(proname).isSuccess()) {
             project.setProname(proname);
         }
-        if(document != null){
-            String docpath = UploadUtil.uploadFile(document,request);
+        if (document != null) {
+            String docpath = UploadUtil.uploadFile(document, request);
             project.setDocument(docpath);
         }
 /////////////////////
-        if(personsId != null){
-            for (Integer pid:personsId) {
+        if (personsId != null) {
+            for (Integer pid : personsId) {
                 Student stu = studentService.findById(pid);
                 stuList.add(stu);
-                project.setPersons(stu.getStuName()+",");
+                project.setPersons(stu.getStuName() + ",");
                 System.out.println("pid : " + pid);
             }
         }
         ////////
-        if(tId!=null){
+        if (tId != null) {
             System.out.println(tId);
         }
-        if(description != null){
+        if (description != null) {
             project.setDescription(description);
         }
 
-   //     int sign = projectService.insertProject(project);
+        //     int sign = projectService.insertProject(project);
 //        if(sign!=0){ //添加成功
 //
 //        }
@@ -137,7 +137,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/toMyProjectList")
-    public String toMyProjectList(Model model,HttpSession session) {
+    public String toMyProjectList(Model model, HttpSession session) {
         model.addAttribute("menuSelected1", Constance.RACE_MANAGE);
         model.addAttribute("menuSelected2", Constance.MY_PROJECT_LIST);
         Student student = (Student) session.getAttribute("student");
@@ -170,50 +170,80 @@ public class StudentController {
         request.setAttribute("race", race);
         return "student/softDesignSelectProject";
     }
+
     @RequestMapping(value = "/toMyRaceList")
-    public String toMyRaceList(Model model, HttpServletRequest request, HttpSession session){
+    public String toMyRaceList(Model model, HttpServletRequest request, HttpSession session) {
         model.addAttribute("menuSelected1", Constance.RACE_MANAGE);
         model.addAttribute("menuSelected2", Constance.MY_RACE_LIST);
         Student student = (Student) session.getAttribute("student");
         List<Race> raceList = raceService.findByStuId(student.getId());
         ResultDO<List<Term>> termresult = termService.getAllTerm();
-        model.addAttribute("raceList",raceList);
+        model.addAttribute("raceList", raceList);
         request.setAttribute("termlist", termresult.getResult());
         return "student/myRaceList";
     }
 
     @RequestMapping(value = "/toStudentDetail")
-    public String toStudentDetail(Model model, HttpSession session){
+    public String toStudentDetail(Model model, HttpSession session) {
         model.addAttribute("menuSelected1", Constance.PERSONAL_CENTER);
         model.addAttribute("menuSelected2", Constance.PERSONAL_MYDATA);
 
         Student student = (Student) session.getAttribute("student");
-        model.addAttribute("stu",student);
+        model.addAttribute("stu", student);
         return "student/studentDetail";
     }
 
     @RequestMapping(value = "/toUpdatePassword")
-    public String toUpdatePassword(Model model){
+    public String toUpdatePassword(Model model) {
         model.addAttribute("menuSelected1", Constance.PERSONAL_CENTER);
         model.addAttribute("menuSelected2", Constance.PERSONAL_UPDATEPASSWD);
 
         return "student/updatePassword";
     }
 
+    @RequestMapping(value = "/updatePassword")
+    public String updatePassword(HttpSession session,Model model, @RequestParam("oldPasswd") String oldPasswd,
+                                 @RequestParam("newPasswd") String newPasswd) {
+        model.addAttribute("menuSelected1", Constance.PERSONAL_CENTER);
+        model.addAttribute("menuSelected2", Constance.PERSONAL_UPDATEPASSWD);
+        int sign = 0 ;      //是否可以修改密码的标志 默认0与原密码不一致 不可以改
+        Student student = (Student) session.getAttribute("student");
+        if (student.getPassWord().equals(oldPasswd)){
+            student.setPassWord(newPasswd);
+            studentService.update(student);
+            sign = 1 ;
+            model.addAttribute("sign",sign);
+
+            session.setAttribute("student",student);
+            return "student/updatePassword";
+        }else{
+            model.addAttribute("sign",sign);
+            return "student/updatePassword";
+        }
+
+    }
+
     @RequestMapping(value = "/toRaceDetail")
-    public String toRaceDetail(Model model,@RequestParam("rid") Integer rid){
+    public String toRaceDetail(Model model, @RequestParam("rid") Integer rid) {
         model.addAttribute("menuSelected1", Constance.RACE_MANAGE);
         model.addAttribute("menuSelected2", Constance.MY_RACE_LIST);
-        System.out.println("rid --"+rid);
+        System.out.println("rid --" + rid);
 
         Race race = raceService.getRaceById(rid).getResult().get(0);
-        model.addAttribute("race",race);
+        model.addAttribute("race", race);
         return "student/raceDetail";
     }
 
     @RequestMapping(value = "/addProject")
-    public String addProject(Model model,HttpServletRequest request ,HttpSession session){
+    public String addProject(Model model, HttpServletRequest request, HttpSession session) {
 
         return "redirect:/student/toMyProjectList.do";
+    }
+    @RequestMapping(value = "/toOtherRace")
+    public String toOtherRace(Model model){
+        model.addAttribute("menuSelected1", Constance.RACE_MANAGE);
+        model.addAttribute("menuSelected2", Constance.APPLY_RACE);
+
+        return "student/otherRace";
     }
 }

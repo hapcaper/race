@@ -129,7 +129,7 @@
 						<label>选择学期: 
 						<select name="t" id="c" class="form-control">
 						<c:forEach items="${termlist }" var="t">
-							<option value="${t.term }">${term.term+2015 }</option>
+							<option value="${t.term }">${t.term+2015 }</option>
 						</c:forEach>
 								
 						</select>

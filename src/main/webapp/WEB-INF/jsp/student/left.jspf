@@ -38,9 +38,7 @@
 						class="active" id='systemA'> <i class="clip-folder"></i> <span
 							class="title"> 赛事管理 </span> <i class="icon-arrow"></i> </a>
 						<ul class="sub-menu">
-								<li id="addProject"><a href="student/toAddProject.do"> <span
-										class="title"> 添加项目 </span> </a>
-								</li>
+
 								<li id="applyRace"><a href="student/toSelectRace.do"> <span
 										class="title"> 申报赛事 </span> </a>
 								</li>

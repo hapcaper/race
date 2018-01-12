@@ -39,13 +39,13 @@
 					
 
 					<li id="raceManage"><a href="javascript:void(0)"
-						class="active" id='systemA'> <i class="clip-folder"></i> <span
+						class="active" id='systemAw'> <i class="clip-folder"></i> <span
 							class="title"> 赛事管理 </span> <i class="icon-arrow"></i> </a>
 						<ul class="sub-menu">
 						<c:if test="${sessionScope.teacher.status == 1 }">
-								<li id="addProject"><a href="manage/toAddProject.do"> <span
-										class="title"> 添加项目 </span> </a>
-								</li>
+								<%--<li id="addProject"><a href="manage/toAddProject.do"> <span--%>
+										<%--class="title"> 添加项目 </span> </a>--%>
+								<%--</li>--%>
 								<li id="applyRace"><a href="manage/toSelectRace.do"> <span
 										class="title"> 申报赛事 </span> </a>
 								</li>
